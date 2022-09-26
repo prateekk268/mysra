@@ -26,16 +26,6 @@ exports.createStudent = async function (req, res) {
 
 exports.getAllStudent = async function (req, res) {
     try {
-        
-        if(req.query){
-            let getUser = await User.findAll({
-                where: {
-                    STUDENT_NAME: req.query.STUDENT_NAME
-                }
-            });
-    
-            return res.status(200).send({ status: true, data: getUser })
-        }
 
         let getUser = await User.findAll({
             order: [["STUDENT_ID", "ASC"]]
